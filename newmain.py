@@ -1,5 +1,5 @@
-from airline.newAirline import Airline
-from airline.newRL_brain import Q_lam
+from newAirline import Airline
+from newRL_brain import Q_lam
 import numpy as np
 
 def update(env, RL, iter_times):
@@ -10,7 +10,7 @@ def update(env, RL, iter_times):
 
         while True:
             env.render()
-            alpha = 1 / (1 + i)
+            alpha = 0.9
             observation = env.cur_observation
             action, is_exploit = RL.choose_action(env.cur_observation)
             observation_, r, is_terminal, info = env.step(action)
@@ -22,7 +22,7 @@ def update(env, RL, iter_times):
         if i % 50 == 0:
             print(total_reward)
 
-    RL.q_table.to_csv('q_table.csv', encoding='utf-8')
+    RL.q_table.to_csv('myq.csv', encoding='utf-8')
 
 
     # 测试
@@ -42,7 +42,7 @@ def update(env, RL, iter_times):
 
 if __name__ == '__main__':
     observation_space = {'capacity':100}
-    action_space = np.linspace(70, 120, 5)
+    action_space = np.linspace(0.3, 1, 5)
     deadline = 10
     iter_times = 1000
 

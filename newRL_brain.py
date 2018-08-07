@@ -43,7 +43,7 @@ class Q_lam():
         self.e_table.loc[s,:] *= 0
         self.e_table.loc[s,a] = 1
 
-        # self.q_table += alpha * error * self.e_table
-        self.q_table += alpha * error
+        self.q_table += alpha * error * self.e_table
+        # self.q_table += alpha * error
         self.e_table *= self.e_table * self.lam
 

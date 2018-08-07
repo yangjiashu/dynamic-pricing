@@ -1,6 +1,6 @@
 import numpy as np
-from airline.Airline import Airline
-from airline.RL_brain import QLearningTable
+from Airline import Airline
+from RL_brain import QLearningTable
 import pandas as pd
 
 def update(env, RL):

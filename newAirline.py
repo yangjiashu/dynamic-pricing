@@ -45,7 +45,7 @@ class Airline(gym.Env):
                    0, {}
 
     def demmand_func(self, observation, t, a):
-        return 75-5*t*np.exp(-2/t * a/100)
+        return 15 * np.exp(-0.5 * a)
 
     def render(self, mode='human'):
         pass
